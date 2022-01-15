@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
+#include <sstream>
 
-int main(int argc, char *argv[])
+int main()
 {
-    for (int i = 1; i < argc; i++)
-    {
-        std::string str(argv[i]);
-        std::cout << str << std::endl;
-    }
+    std::ostringstream oss;
+    oss << "hello" << 123;
+
+    std::string str(oss.str());
+
+    std::cout << str << std::endl;
 }

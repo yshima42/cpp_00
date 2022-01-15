@@ -5,5 +5,5 @@ using namespace std;
 
 Cat::Cat()
 {
-	
+aaaaa	
 }
