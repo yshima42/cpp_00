@@ -1,7 +1,7 @@
 #ifndef INCLUDE_GUARD_PHONEBOOK_HPP
 #define INCLUDE_GUARD_PHONEBOOK_HPP
 
-#include "contact.hpp"
+#include "Contact.hpp"
 #include <iomanip>
 
 const int MAX_CONTACTS = 8;

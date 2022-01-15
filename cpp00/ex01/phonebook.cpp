@@ -1,11 +1,12 @@
-#include "phonebook.hpp"
+#include "Phonebook.hpp"
 #include "color.hpp"
+#include <string>
 
 Phonebook::Phonebook() : index_head(0) {}
 
 Phonebook::~Phonebook() {}
 
-std::string readline(std::string prompt, int width)
+static std::string readline(std::string prompt, int width)
 {
     std::string input;
 
@@ -18,45 +19,6 @@ std::string readline(std::string prompt, int width)
         break;
     }
     return (input);
-}
-
-void Phonebook::add()
-{
-   if (index_head == MAX_CONTACTS) 
-       index_head = 0;
-   contacts[index_head].setFirstName(readline("First name: ", SUB_WIDTH));
-   contacts[index_head].setLastName(readline("Last name: ", SUB_WIDTH));
-   contacts[index_head].setNickName(readline("Nickname: ", SUB_WIDTH));
-   contacts[index_head].setPhoneNumber(readline("Phone Number: ", SUB_WIDTH));
-   contacts[index_head].setDarkestSecret(readline("Darkest Secret: ", SUB_WIDTH));
-   contacts[index_head].contactFill();
-   std::cout << GREEN << "Contact is saved in index No:" << index_head << RESET << std::endl;
-   index_head++;
-}
-
-void Phonebook::showNames(int index)
-{
-    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getFirstName() << "|" ;
-    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getLastName() << "|" ;
-    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getNickName() << "|" << std::endl;
-}
-
-static void printHeader()
-{
-    std::cout << std::endl;
-    std::cout << "[Index]|First Name| Last Name| Nickname |" << std::endl;
-    std::cout << "-----------------------------------------" << std::endl;
-}
-
-void Phonebook::showIndex()
-{
-    printHeader();
-    for (int i = 0; i < MAX_CONTACTS; i++)
-    {
-        std::cout << "[  " << i << "  ]|";
-        showNames(i);
-    }
-    std::cout << std::endl;
 }
 
 static bool isBetween(int n, int min, int max)
@@ -95,6 +57,55 @@ static int readIndex()
     }
 }
 
+void Phonebook::add()
+{
+    std::string phone_number;
+
+    if (index_head == MAX_CONTACTS) 
+       index_head = 0;
+   contacts[index_head].setFirstName(readline("First name: ", SUB_WIDTH));
+   contacts[index_head].setLastName(readline("Last name: ", SUB_WIDTH));
+   contacts[index_head].setNickName(readline("Nickname: ", SUB_WIDTH));
+   while (true)
+   {
+        phone_number = readline("Phone Number: ", SUB_WIDTH);
+        if (isNumber(phone_number)) 
+            break ;
+        else
+            std::cout << RED << "  Error: Please input digits for the phone number" << RESET << std::endl;;
+   }
+   contacts[index_head].setPhoneNumber(phone_number);
+   contacts[index_head].setDarkestSecret(readline("Darkest Secret: ", SUB_WIDTH));
+   contacts[index_head].contactFill();
+   std::cout << GREEN << "Contact is saved in index No:" << index_head << RESET << std::endl;
+   index_head++;
+}
+
+void Phonebook::showNames(int index)
+{
+    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getFirstName() << "|" ;
+    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getLastName() << "|" ;
+    std::cout << std::setw(HEADER_WIDTH) << contacts[index].getNickName() << "|" << std::endl;
+}
+
+static void printHeader()
+{
+    std::cout << std::endl;
+    std::cout << "[Index]|First Name| Last Name| Nickname |" << std::endl;
+    std::cout << "-----------------------------------------" << std::endl;
+}
+
+void Phonebook::showIndex()
+{
+    printHeader();
+    for (int i = 0; i < MAX_CONTACTS; i++)
+    {
+        std::cout << "[  " << i << "  ]|";
+        showNames(i);
+    }
+    std::cout << std::endl;
+}
+
 void Phonebook::showAll(int index)
 {
     std::cout << "First Name: " << contacts[index].getFirstName() << std::endl;
@@ -119,6 +130,8 @@ void	Phonebook::search()
 
 void Phonebook::start()
 {
+    std::cout << YELLOW << "<< Welcome to My Awesome Phonebook >>" << RESET << std::endl;
+    std::cout << CYAN << "Please enter a command. [ADD/SEARCH/EXIT]" << RESET << std::endl;
     try
     {
         while (true)
