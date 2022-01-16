@@ -81,7 +81,7 @@ void Phonebook::add()
    index_head++;
 }
 
-static std::string display_10_chrs(std::string content)
+static std::string to_10chrs(std::string content)
 {
 	if (content.size() > 10)
 		return (content.replace(9, 1, ".").substr(0, 10));
@@ -90,9 +90,9 @@ static std::string display_10_chrs(std::string content)
 
 void Phonebook::showNames(int index)
 {
-    std::cout << std::setw(HEADER_WIDTH) << display_10_chrs(contacts[index].getFirstName()) << "|" ;
-    std::cout << std::setw(HEADER_WIDTH) << display_10_chrs(contacts[index].getLastName()) << "|" ;
-    std::cout << std::setw(HEADER_WIDTH) << display_10_chrs(contacts[index].getNickName()) << "|" << std::endl;
+    std::cout << std::setw(HEADER_WIDTH) << to_10chrs(contacts[index].getFirstName()) << "|" ;
+    std::cout << std::setw(HEADER_WIDTH) << to_10chrs(contacts[index].getLastName()) << "|" ;
+    std::cout << std::setw(HEADER_WIDTH) << to_10chrs(contacts[index].getNickName()) << "|" << std::endl;
 }
 
 static void printHeader()
