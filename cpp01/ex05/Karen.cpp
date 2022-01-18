@@ -13,7 +13,7 @@ Karen::~Karen() {}
 
 void Karen::undefined( void )
 {
-    std::cout << "I don't know what you're talking about..."
+    std::cout << "I don't know what to say..."
         << "(Error: Invalid Arguments)" << std::endl;
 }
 
