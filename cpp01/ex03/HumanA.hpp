@@ -13,5 +13,6 @@ class HumanA
         ~HumanA();
         void attack();
 };
+
 #endif
 

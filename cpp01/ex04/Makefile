@@ -1,7 +1,7 @@
 NAME	:= replace
 SRCS	:= main.cpp Replace.cpp
 OBJS	:= $(SRCS:.cpp=.o)
-CXX     := clang++
+CXX     := c++
 CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -pedantic 
 
 all     : 	$(NAME)

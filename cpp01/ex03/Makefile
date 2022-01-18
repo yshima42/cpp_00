@@ -1,7 +1,7 @@
 NAME	:= violence
 SRCS	:= main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
 OBJS	:= $(SRCS:.cpp=.o)
-CXX     := clang++
+CXX     := c++
 CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -pedantic 
 
 all     : 	$(NAME)

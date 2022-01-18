@@ -1,5 +1,6 @@
 #include "Karen.hpp"
 #include "color.hpp"
+#include <cstdlib>
 
 enum e_level
 {
@@ -27,7 +28,10 @@ int check_level(std::string level)
 int main(int argc, char *argv[])
 {
     if (argc != 2)
+    {
         std::cout << "Usage: ./karenFilter \"level\"" << std::endl;
+        return(EXIT_FAILURE);
+    }
 
     Karen karen;
     std::string level = argv[1];

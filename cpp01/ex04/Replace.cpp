@@ -5,10 +5,6 @@ Replace::Replace(std::string const &s1, std::string const &s2, std::istream &cin
 {
     if (_s1.empty() || _s2.empty())
         throw "s1 or s2 cannot be empty";
-    if (!_cin)
-        throw "failed to open input file";
-    if (!_cout)
-        throw "failed to create output file";
 }
 
 Replace::~Replace() {}

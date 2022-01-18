@@ -6,12 +6,12 @@ Zombie::Zombie(std::string name) : _name(name) {}
 
 Zombie::~Zombie()
 {
-    std::cout << _name << "is dead" << std::endl; 
+    std::cout << "<" << _name << "> is dead" << std::endl; 
 }
 
 void Zombie::setName(std::string name)
 {
-   _name = name; 
+    _name = name;
 }
 
 void Zombie::announce( void )

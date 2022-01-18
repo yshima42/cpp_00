@@ -1,3 +1,6 @@
+#ifndef INCLUDE_GUARD_KAREN_HPP
+#define INCLUDE_GUARD_KAREN_HPP
+
 #include <iostream>
 #include <string>
 
@@ -17,3 +20,6 @@ class Karen
         void complain( std::string level );
 
 };
+
+#endif
+
