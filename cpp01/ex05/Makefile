@@ -1,5 +1,5 @@
-NAME	:= replace
-SRCS	:= main.cpp Replace.cpp
+NAME	:= karen
+SRCS	:= main.cpp Karen.cpp
 OBJS	:= $(SRCS:.cpp=.o)
 CXX     := clang++
 CXXFLAGS:= -Wall -Wextra -Werror -std=c++98 -pedantic 
