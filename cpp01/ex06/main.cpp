@@ -4,25 +4,18 @@
 
 enum e_level
 {
+    UNDEFINED,
     DEBUG,
     INFO,
     WARNING,
-    ERROR,
-    UNDEFINED
+    ERROR
 };
 
 int check_level(std::string level)
-{
-    if (level == "DEBUG")
-        return (DEBUG);
-    else if (level == "INFO")
-        return (INFO);
-    else if (level == "WARNING")
-        return (WARNING);
-    else if (level == "ERROR")
-        return (ERROR);
-    else
-        return (UNDEFINED);
+{ 
+    int i_level = (level == "DEBUG") * DEBUG + (level == "INFO") * INFO +
+                  (level == "WARNING") * WARNING + (level == "ERROR") * ERROR;
+    return (i_level);
 }
 
 int main(int argc, char *argv[])
