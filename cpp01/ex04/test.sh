@@ -20,7 +20,7 @@ printf "\n"
 
 printf "<test1.txt simple test>\n"
 ./replace tests/test1.txt a hello
-diff -y --suppress-common-lines tests/test1.txt tests/test1.txt.replace 
+diff --suppress-common-lines tests/test1.txt tests/test1.txt.replace 
 printf "\n"
 
 printf "<test1.txt s1 == s2>\n"
@@ -28,7 +28,7 @@ printf "<test1.txt s1 == s2>\n"
 diff -y --suppress-common-lines tests/test1.txt tests/test1.txt.replace
 printf "\n"
 
-printf "<test1.txt s1 dose not exist>\n"
+printf "<test1.txt s1 does not exist>\n"
 ./replace tests/test1.txt pp bb 
 diff -y --suppress-common-lines tests/test1.txt tests/test1.txt.replace
 printf "\n"
@@ -38,7 +38,7 @@ printf "<test2.txt simple test>\n"
 diff -y --suppress-common-lines tests/test2.txt tests/test2.txt.replace 
 printf "\n"
 
-printf "<test2.txt s1 dose not exit>\n"
+printf "<test2.txt s1 dose not exist>\n"
 ./replace tests/test2.txt HELLO aaa
 diff -y --suppress-common-lines tests/test2.txt tests/test2.txt.replace
 printf "\n"

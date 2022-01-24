@@ -9,7 +9,6 @@ int main(int argc, char *argv[])
 
         std::string infile(argv[1]);
         std::ifstream ifs(infile);
-
         if (ifs.fail())
             throw "Failed to open infile";
 
