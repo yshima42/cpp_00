@@ -11,7 +11,7 @@ DiamondTrap::DiamondTrap() : ClapTrap("ClapName"), _name("DiamondName")
     std::cout << "DiamondTrap Default Constructor called: " << _name << std::endl;
 }
 
-DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"ClapName"), _name(name)
+DiamondTrap::DiamondTrap(std::string name) : ClapTrap(name+"_clap_name"), _name(name)
 {
     _hitpoints = FragTrap::f_HP;
     _energyPoints = ScavTrap::s_EP;
@@ -38,7 +38,8 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
     if (this != &other)
     {
         _name = other._name;
-        ClapTrap::_name = other._hitpoints;
+        ClapTrap::_name = other.ClapTrap::_name;
+		_hitpoints = other._hitpoints;
         _energyPoints = other._energyPoints;
         _attackDamage = other._attackDamage;
     }

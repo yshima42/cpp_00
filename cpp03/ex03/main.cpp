@@ -78,6 +78,9 @@ int main()
         dBob.takeDamege(30);
         dBob.showStatus();
         std::cout << std::endl;
+        dBob.beRepaired(120);
+        dBob.showStatus();
+        std::cout << std::endl;
         dBob.guardGate();
         dBob.highFivesGuys(); 
         dBob.whoAmI();
