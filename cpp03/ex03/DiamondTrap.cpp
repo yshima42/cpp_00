@@ -28,13 +28,12 @@ DiamondTrap::~DiamondTrap()
 
 DiamondTrap::DiamondTrap(DiamondTrap const &other)
 {
-    std::cout << "DiamondTrap Copy Constructor called: " << _name << std::endl;
     *this = other;
+    std::cout << "DiamondTrap Copy Constructor called: " << _name << std::endl;
 }
 
 DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
 {
-    std::cout << "DiamondTrap Assignation Operator Overload called: " << _name << std::endl;
     if (this != &other)
     {
         _name = other._name;
@@ -43,6 +42,7 @@ DiamondTrap &DiamondTrap::operator=(DiamondTrap const &other)
         _energyPoints = other._energyPoints;
         _attackDamage = other._attackDamage;
     }
+    std::cout << "DiamondTrap Assignation Operator Overload called: " << _name << std::endl;
     return *this;
 }
 

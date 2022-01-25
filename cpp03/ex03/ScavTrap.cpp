@@ -25,13 +25,12 @@ ScavTrap::~ScavTrap()
 
 ScavTrap::ScavTrap(ScavTrap const &other)
 {
-    std::cout << "ScavTrap Copy Constructor called: " << _name << std::endl;
     *this = other;
+    std::cout << "ScavTrap Copy Constructor called: " << _name << std::endl;
 }
 
 ScavTrap &ScavTrap::operator=(ScavTrap const &other)
 {
-    std::cout << "ScavTrap Assignation Operator Overload called: " << _name << std::endl;
     if (this != &other)
     {
         _name = other._name;
@@ -39,6 +38,7 @@ ScavTrap &ScavTrap::operator=(ScavTrap const &other)
         _energyPoints = other._energyPoints;
         _attackDamage = other._attackDamage;
     }
+    std::cout << "ScavTrap Assignation Operator Overload called: " << _name << std::endl;
     return *this;
 }
 

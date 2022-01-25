@@ -85,6 +85,12 @@ int main()
         dBob.highFivesGuys(); 
         dBob.whoAmI();
         std::cout << std::endl;
+
+		DiamondTrap d2Bob(dBob);
+		d2Bob.showStatus();
+		d2Bob.whoAmI();
+        std::cout << std::endl;
+
     }
 
 }

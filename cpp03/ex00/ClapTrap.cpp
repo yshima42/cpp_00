@@ -17,13 +17,12 @@ ClapTrap::~ClapTrap()
 
 ClapTrap::ClapTrap(ClapTrap const &other)
 {
-    std::cout << "ClapTrap Copy Constructor called: " << _name << std::endl;
     *this = other;
+    std::cout << "ClapTrap Copy Constructor called: " << _name << std::endl;
 }
 
 ClapTrap &ClapTrap::operator=(ClapTrap const &other)
 {
-    std::cout << "ClapTrap Assignation Operator Overload called: " << _name << std::endl;
     if (this != &other)
     {
         _name = other._name;
@@ -31,6 +30,7 @@ ClapTrap &ClapTrap::operator=(ClapTrap const &other)
         _energyPoints = other._energyPoints;
         _attackDamage = other._attackDamage;
     }
+    std::cout << "ClapTrap Assignation Operator Overload called: " << _name << std::endl;
     return *this;
 }
 

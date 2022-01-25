@@ -26,13 +26,12 @@ FragTrap::~FragTrap()
 
 FragTrap::FragTrap(FragTrap const &other)
 {
-    std::cout << "FragTrap Copy Constructor called: " << _name << std::endl;
     *this = other;
+    std::cout << "FragTrap Copy Constructor called: " << _name << std::endl;
 }
 
 FragTrap &FragTrap::operator=(FragTrap const &other)
 {
-    std::cout << "FragTrap Assignation Operator Overload called: " << _name << std::endl;
     if (this != &other)
     {
         _name = other._name;
@@ -40,6 +39,7 @@ FragTrap &FragTrap::operator=(FragTrap const &other)
         _energyPoints = other._energyPoints;
         _attackDamage = other._attackDamage;
     }
+    std::cout << "FragTrap Assignation Operator Overload called: " << _name << std::endl;
     return *this;
 }
 
@@ -52,5 +52,4 @@ void FragTrap::attack(const std::string &target)
 void FragTrap::highFivesGuys(void)
 {
     std::cout << "FragTrap " << _name << " request positive high five." << std::endl;
-
 }
