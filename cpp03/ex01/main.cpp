@@ -34,7 +34,7 @@ int main()
         sBob.takeDamege(50);
         sBob.showStatus();
         std::cout << std::endl;
-        sBob.takeDamege(30);
+        sBob.beRepaired(30);
         sBob.showStatus();
         std::cout << std::endl;
         sBob.guardGate(); 
