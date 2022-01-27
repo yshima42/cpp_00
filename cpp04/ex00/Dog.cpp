@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog() : Animal("_Dog")
+Dog::Dog() : Animal("Dog")
 {
     std::cout << "Dog: Default Constructor" << std::endl;
 }

@@ -6,20 +6,20 @@
 void Test_Without_Pointer()
 {
     std::cout << YELLOW << "< Without Using Pointer >" << RESET << std::endl;
-    std::cout << CYAN << "< Normal_Animals >" << RESET << std::endl;
+    std::cout << CYAN << "< Correct_Animals >" << RESET << std::endl;
     {
-        Animal a("_Animal");
-        a.makeSound();
+        Animal a("Animal");
         Dog d;
-        d.makeSound();
         Cat c;
+        a.makeSound();
+        d.makeSound();
         c.makeSound();
     }
     std::cout << CYAN << "< Wrong_Animals >" << RESET << std::endl;
     {
-        WrongAnimal a("_WrongAnimal");
-        a.makeSound();
+        WrongAnimal a("WrongAnimal");
         Cat c;
+        a.makeSound();
         c.makeSound();
     }
 }
@@ -27,21 +27,39 @@ void Test_Without_Pointer()
 void Test_With_Pointer()
 {
     std::cout << YELLOW << "< With Using Pointer >" << RESET << std::endl;
-    std::cout << CYAN << "< Normal_Animals >" << RESET << std::endl;
+    std::cout << CYAN << "< Correct_Animals >" << RESET << std::endl;
     {
-        Animal* a = new Animal("_Animal");
-        a->makeSound();
-        Animal* d = new Dog();
-        d->makeSound();
-        Animal* c = new Cat();
-        c->makeSound();
+        const Animal* meta = new Animal();
+        const Animal* i = new Dog();
+        const Animal* j = new Cat();
+
+        std::cout << meta->getType() << " " << std::endl;
+        std::cout << i->getType() << " " << std::endl;
+        std::cout << j->getType() << " " << std::endl;
+        meta->makeSound();
+        i->makeSound();
+        j->makeSound();
+
+        delete meta;
+        delete i;
+        delete j;
+
+        std::cout	<<	std::endl;
     }
     std::cout << CYAN << "< Wrong_Animals >" << RESET << std::endl;
     {
-        WrongAnimal* a = new WrongAnimal("_WrongAnimal");
-        a->makeSound();
-        WrongAnimal* c = new WrongCat();
-        c->makeSound();
+        const WrongAnimal* meta = new WrongAnimal();
+        const WrongAnimal* j = new WrongCat();
+
+        std::cout << meta->getType() << " " << std::endl;
+        std::cout << j->getType() << " " << std::endl;
+        meta->makeSound();
+        j->makeSound();
+
+        delete meta;
+        delete j;
+
+        std::cout	<<	std::endl;
     }
 }
 

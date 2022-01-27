@@ -1,10 +1,5 @@
 #include "Animal.hpp"
 
-Animal::Animal() : _type("")
-{
-    std::cout << "Animal: Default Constructor" << std::endl;
-}
-
 Animal::Animal(std::string type) : _type(type)
 {
     std::cout << "Animal: Constructor" << _type << std::endl;

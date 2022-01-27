@@ -1,10 +1,5 @@
 #include "WrongAnimal.hpp"
 
-WrongAnimal::WrongAnimal() : _type("")
-{
-    std::cout << "WrongAnimal: Default Constructor" << std::endl;
-}
-
 WrongAnimal::WrongAnimal(std::string type) : _type(type)
 {
     std::cout << "WrongAnimal: Constructor" << _type << std::endl;
