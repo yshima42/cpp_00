@@ -97,8 +97,7 @@ int main()
     //testDogBrain();
     //testCatBrain();
 
-    std::cout << std::endl;
-    system("leaks -q a.out");
+    //system("leaks -q a.out");
 
 }
 
