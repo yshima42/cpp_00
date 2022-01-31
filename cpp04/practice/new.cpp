@@ -5,7 +5,7 @@ using namespace std;
 void out_of_memory()
 {
     cerr << "メモリ割り当てに失敗しました。" << endl;
-    throw bad_alloc();
+    
 }
 
 int main()
