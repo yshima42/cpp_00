@@ -21,14 +21,14 @@ Form::~Form()
 Form::Form(Form const &other)
     :_name(other.getName()), _is_signed(isSigned()), _grade_to_sign(other.getSignGrade()), _grade_to_execute(other.getExecuteGrade()) 
 {
-    *this = other;
 }
 
 Form &Form::operator=(Form const &other)
 {
-    if (this != &other)
-    {
-    }
+    const_cast<std::string&>(_name) = other._name;
+    _is_signed = other._is_signed;
+    const_cast<int&>(_grade_to_sign) = other._grade_to_sign;
+    const_cast<int&>(_grade_to_execute) = other._grade_to_execute;
     return *this;
 }
 
