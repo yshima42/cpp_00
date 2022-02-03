@@ -1,11 +1,14 @@
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
+#include "color.hpp"
+
+Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &message) : std::out_of_range(message) {}
+
+Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &message) : std::out_of_range(message) {}
 
 Bureaucrat::Bureaucrat(std::string const &name, int grade) : _name(name), _grade(grade)
 {
-    if (grade < k_max_grade)
-        throw GradeTooHighException();
-    else if (grade > k_min_grade)
-        throw GradeTooLowException();
+    assertGradeInRange(_grade);
 }
 
 Bureaucrat::~Bureaucrat()
@@ -36,10 +39,11 @@ int Bureaucrat::getGrade() const
     return this->_grade;
 }
 
-std::ostream &operator<<(std::ostream &ost, Bureaucrat const &other)
+std::ostream &operator<<(std::ostream &ost, Bureaucrat const &rhs)
 {
-    ost << "[" << &other << "]" << " Name: " << other.getName()
-        << " Grade: " << other.getGrade();
+    ost << "<Bureaucrat>\n"
+        << "Name  :" << rhs.getName() << "\n"
+        << "Grade :" << rhs.getGrade();
     return ost;
 }
 
@@ -69,7 +73,18 @@ void Bureaucrat::decrementGrade()
     this->_grade += 1;
 }
 
-Bureaucrat::GradeTooHighException::GradeTooHighException(const std::string &message) : std::out_of_range(message) {}
-
-Bureaucrat::GradeTooLowException::GradeTooLowException(const std::string &message) : std::out_of_range(message) {}
+bool Bureaucrat::signForm(Form &form) const
+{
+    try
+    {
+        form.beSigned(*this);
+        std::cout << GREEN << this->getName() << "(Bureaucrat) signs " << form.getName() << "(Form)" << RESET << std::endl;
+    }
+    catch (std::exception const &e)
+    {
+        std::cout << RED << this->getName() << "(Bureaucrat) cannot sign " << form.getName() << "(Form) because " << e.what() << RESET << std::endl;
+        return false;
+    }
+    return true;
+}
 

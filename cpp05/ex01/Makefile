@@ -1,5 +1,5 @@
 NAME	:= a.out
-SRCS	:= Bureaucrat.cpp main.cpp
+SRCS	:= Bureaucrat.cpp Form.cpp main.cpp
 
 INCS    := -I./
 OBJS	:= $(SRCS:.cpp=.o)

@@ -27,12 +27,14 @@ class Bureaucrat
 
         class GradeTooHighException: public std::out_of_range
         {
-            public: GradeTooHighException(const std::string &message = "Grade is too high");
+            public:
+                GradeTooHighException(const std::string &message = "Grade is too high");
         };
 
         class GradeTooLowException: public std::out_of_range
         {
-            public: GradeTooLowException(const std::string &message = "Grade is too low");
+            public:
+                GradeTooLowException(const std::string &message = "Grade is too low");
         };
 };
 

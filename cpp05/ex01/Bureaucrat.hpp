@@ -3,6 +3,8 @@
 
 #include <iostream>
 
+class Form;
+
 class Bureaucrat
 {
     private:
@@ -13,13 +15,14 @@ class Bureaucrat
         int _grade;
 
     public:
-        Bureaucrat(std::string const &name = "default", int grade = k_min_grade);
+        Bureaucrat(std::string const &name = "Default Bureaucrat", int grade = k_min_grade);
         virtual ~Bureaucrat();
         Bureaucrat(Bureaucrat const &other);
         Bureaucrat &operator=(Bureaucrat const &other);
 
         std::string const & getName() const;
         int getGrade() const;
+        bool signForm(Form &form) const;
         
         void assertGradeInRange(int grade);
         void incrementGrade();
@@ -27,13 +30,17 @@ class Bureaucrat
 
         class GradeTooHighException: public std::out_of_range
         {
-            public: GradeTooHighException(const std::string &message = "Grade is too high");
+            public:
+                GradeTooHighException(const std::string &message = "Grade is too high");
         };
 
         class GradeTooLowException: public std::out_of_range
         {
-            public: GradeTooLowException(const std::string &message = "Grade is too low");
+            public:
+                GradeTooLowException(const std::string &message = "Grade is too low");
         };
 };
+
+std::ostream &operator<<(std::ostream &ost, Bureaucrat const &rhs);
 
 #endif
