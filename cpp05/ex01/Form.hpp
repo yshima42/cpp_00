@@ -14,8 +14,8 @@ class Form
 
         std::string const _name;
         bool _is_signed;
-        int _grade_to_sign;
-        int _grade_to_execute;
+        int const _grade_to_sign;
+        int const _grade_to_execute;
 
     public:
         Form(std::string const &name = "Default Form", int const grade_to_sign = k_min_grade, int const grade_to_execute = k_min_grade);

@@ -19,6 +19,7 @@ Form::~Form()
 }
 
 Form::Form(Form const &other)
+    :_name(other.getName()), _is_signed(isSigned()), _grade_to_sign(other.getSignGrade()), _grade_to_execute(other.getExecuteGrade()) 
 {
     *this = other;
 }
@@ -27,9 +28,6 @@ Form &Form::operator=(Form const &other)
 {
     if (this != &other)
     {
-        this->_is_signed = other._is_signed;
-        this->_grade_to_sign = other._grade_to_sign;
-        this->_grade_to_execute = other._grade_to_execute;
     }
     return *this;
 }
