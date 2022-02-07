@@ -12,6 +12,7 @@ class ClapTrap
         unsigned int _energyPoints;
         unsigned int _attackDamage;
 
+    private:
         static const unsigned int HP = 10;
         static const unsigned int EP = 10;
         static const unsigned int AD = 0;
