@@ -35,8 +35,9 @@ int Intern::checkIndex(std::string const &form_name)
 Form *Intern::makeForm(const std::string &form_name, const std::string &target) const
 {
     int index = checkIndex(form_name);
-    if (index == 0)
+    while (index == 0)
         throw InvalidFormNameException();
+    std::cout << GREEN << "Intern creates " << form_name << " form"<< RESET << std::endl;
     return formFunction[index](target);
 }
 

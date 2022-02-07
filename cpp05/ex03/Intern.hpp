@@ -25,7 +25,7 @@ class Intern
         virtual ~Intern();
         Intern(Intern const &other);
         Intern &operator=(Intern const &other);
-        
+
         static const std::string form_list[k_form_num];
         static Form* (*formFunction[k_form_num])(const std::string &target);
         
@@ -42,10 +42,6 @@ class Intern
             public:
                 InvalidFormNameException(const std::string &message = "Error: Intern recieved invalid argument");
         };
-
-        //static const std::string k_ShrubberyFormName;
-        //static const std::string k_RobotomyFormName;
-        //static const std::string k_PresidentialFormName;
 };
 
 #endif

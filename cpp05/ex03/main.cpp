@@ -138,12 +138,25 @@ void test()
         b25.signForm(*pf);
         b6.executeForm(*pf);
         b5.executeForm(*pf);
+
+        delete sf;
+        delete rf;
+        delete pf;
     }
     catch (std::exception &e)
     {
         std::cout << e.what() << std::endl;
     }
 
+}
+
+void testSubject()
+{
+    Intern  someRandomIntern;
+    Form*   rrf;
+    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+    std::cout << *rrf << std::endl;
+    delete rrf;
 }
 
 
@@ -153,6 +166,11 @@ int	main()
     //testLow();
     //testHigh();
 
+    testSubject();
+
     test();
 }
 
+// void detect_leak(void) __attribute__((destructor));
+
+// void detect_leak(void) { system("leaks -q a.out"); }

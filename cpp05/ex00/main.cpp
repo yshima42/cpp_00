@@ -19,7 +19,7 @@ void testStandard()
 		}
 		catch (std::exception const & e)
 		{
-			std::cout << e.what() << " " << n<< std::endl;
+			std::cout << e.what() << " " << n << std::endl;
 		}
 	}
 }
@@ -77,3 +77,6 @@ int	main()
     testHigh();
 }
 
+// void detect_leak(void) __attribute__((destructor));
+
+// void detect_leak(void) { system("leaks -q a.out"); }
