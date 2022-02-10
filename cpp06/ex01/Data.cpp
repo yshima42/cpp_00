@@ -13,9 +13,8 @@ uintptr_t serialize(Data *ptr) { return reinterpret_cast<uintptr_t>(ptr); }
 
 Data *deserialize(uintptr_t raw) { return reinterpret_cast<Data *>(raw); }
 
-std::ostream &operator<<(std::ostream &ost, const Data &rhs)
-{
-    ost << "ID: " << rhs.getStr() << "\n";
-    ost << "Score: " << rhs.getInt() << "\n";
-    return ost;
+std::ostream &operator<<(std::ostream &ost, const Data &rhs) {
+  ost << "ID: " << rhs.getStr() << "\n";
+  ost << "Score: " << rhs.getInt();
+  return ost;
 }

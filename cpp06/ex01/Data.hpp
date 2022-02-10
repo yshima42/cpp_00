@@ -5,7 +5,6 @@
 
 class Data {
  public:
-
   Data(const std::string &str_data = "yshimazu", const int &int_data = 10);
   virtual ~Data();
 

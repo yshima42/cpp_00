@@ -1,17 +1,31 @@
 #include <iostream>
 
 #include "Data.hpp"
+#include "color.hpp"
 
-int main() { 
-    Data data1("yshima1", 5);
-    Data data2;
+int main() {
+  Data data1("yshima", 5);
 
-    std::cout << data1 << std::endl;
-    std::cout << data2 << std::endl;
+  uintptr_t save_data = serialize(&data1);
+  Data *raw_data = deserialize(save_data);
 
-    uintptr_t save_data = serialize(&data1);
-    Data *raw_data = deserialize(save_data);
+  std::cout << YELLOW << "---Pointer data---" << RESET << std::endl;
+  std::cout << "data adress: " << &data1 << std::endl;
+  std::cout << "after serialize adress: " << &save_data << std::endl;
+  std::cout << "after deserialize adress: " << raw_data << std::endl;
 
-    std::cout << *raw_data << std::endl;
-    
+  std::cout << std::endl;
+
+  std::cout << YELLOW << "---Data size---" << RESET << std::endl;
+  std::cout << "data size: " << sizeof(data1) << std::endl;
+  std::cout << "after serialize data size: " << sizeof(save_data) << std::endl;
+  std::cout << "after deserialize data size: " << sizeof(*raw_data)
+            << std::endl;
+
+  std::cout << std::endl;
+
+  std::cout << YELLOW << "---Variable data---" << RESET << std::endl;
+  std::cout << "< before serialize >\n" << data1 << std::endl;
+  std::cout << "< after serialize and deserialize >\n"
+            << *raw_data << std::endl;
 }
