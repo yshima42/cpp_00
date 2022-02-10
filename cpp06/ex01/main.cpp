@@ -25,7 +25,9 @@ int main() {
   std::cout << std::endl;
 
   std::cout << YELLOW << "---Variable data---" << RESET << std::endl;
-  std::cout << "< before serialize >\n" << data1 << std::endl;
-  std::cout << "< after serialize and deserialize >\n"
+  std::cout << GREEN << "< before serialize >\n" << RESET << data1 << std::endl;
+  std::cout << GREEN << "< after serialize and deserialize >\n" << RESET
             << *raw_data << std::endl;
+
+  std::cout << std::endl;
 }
