@@ -16,16 +16,39 @@ class Convert {
   Convert(Convert const &other);
   Convert &operator=(Convert const &other);
 
+  void detectType();
   bool isChar();
   bool isInt();
   bool isFloat();
   bool isDouble();
 
-  void setChar();
+  // set different types of valiables
+  void setValues();
+  void setValuesFromChar();
+  void setValuesFromInt();
+  void setValuesFromFloat();
+  void setValuesFromDouble();
 
-  const std::string getChar() const;
+  // set *_str valiables
+  void setStrs();
+  void setStrsFromChar();
+  void setStrsFromInt();
+  void setStrsFromFloat();
+  void setStrsFromDouble();
+  void setStrsError();
 
-  void detectType();
+  // getters
+  char get_c() const;
+  int get_i() const;
+  float get_f() const;
+  double get_d() const;
+
+  const std::string get_c_str() const;
+  const std::string get_i_str() const;
+  const std::string get_f_str() const;
+  const std::string get_d_str() const;
+  const std::string get_str() const;
+
   const std::string getType() const;
   void convertPrint(Convert &cv);
 
@@ -33,12 +56,18 @@ class Convert {
   static const std::string k_Impossible;
 
  private:
-  std::string _str;
-  std::string _char;
-  std::string _int;
-  std::string _float;
-  std::string _double;
+  const std::string _str;
   int _valueType;
+
+  char _c;
+  int _i;
+  float _f;
+  double _d;
+
+  std::string _c_str;
+  std::string _i_str;
+  std::string _f_str;
+  std::string _d_str;
 };
 
 std::ostream &operator<<(std::ostream &ost, const Convert &rhs);

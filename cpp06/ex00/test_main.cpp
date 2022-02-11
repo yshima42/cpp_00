@@ -41,11 +41,12 @@ void showType(const std::string str) {
   }
 }
 
-void testOperator(const std::string str)
-{
-    Convert a(str);
-    a.setChar();
-    std::cout << a << std::endl;
+void testOperator(const std::string str) {
+  Convert a(str);
+  a.detectType();
+  a.setValues();
+  a.setStrs();
+  std::cout << a << std::endl;
 }
 
 void showUsage() { std::cout << "Usage: ./convert <value>\n"; }
@@ -56,7 +57,7 @@ int main(int ac, char *av[]) {
     return 0;
   }
   try {
-    //showType(av[1]);
+    showType(av[1]);
     testOperator(av[1]);
 
   } catch (std::exception const &e) {
