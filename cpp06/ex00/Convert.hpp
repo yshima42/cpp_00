@@ -9,14 +9,8 @@
 #include <string>
 
 class Convert {
- private:
-  std::string _str;
-  char _c;
-  int _i;
-  float _f;
-  double _d;
-
  public:
+  enum valueType { UNDEFINE, CHAR, INT, FLOAT, DOUBLE };
   Convert(const std::string &str = "");
   virtual ~Convert();
   Convert(Convert const &other);
@@ -26,6 +20,27 @@ class Convert {
   bool isInt();
   bool isFloat();
   bool isDouble();
+
+  void setChar();
+
+  const std::string getChar() const;
+
+  void detectType();
+  const std::string getType() const;
+  void convertPrint(Convert &cv);
+
+  static const std::string k_NonDisplayable;
+  static const std::string k_Impossible;
+
+ private:
+  std::string _str;
+  std::string _char;
+  std::string _int;
+  std::string _float;
+  std::string _double;
+  int _valueType;
 };
+
+std::ostream &operator<<(std::ostream &ost, const Convert &rhs);
 
 #endif

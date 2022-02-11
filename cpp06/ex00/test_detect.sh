@@ -7,4 +7,5 @@ do
     ./convert $line
 done < corvvs_cases.txt
 
+make fclean
 

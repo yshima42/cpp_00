@@ -12,6 +12,9 @@ int main(int ac, char *av[]) {
   }
   try {
     Convert cv(av[1]);
+    cv.detectType();
+    std::cout << cv.getType() << std::endl;
+
   } catch (std::exception const &e) {
     std::cout << e.what() << std::endl;
   }
