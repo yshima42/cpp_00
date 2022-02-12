@@ -49,7 +49,6 @@ class Convert {
   const std::string get_str() const;
 
   const std::string getType() const;
-  void convertPrint(Convert &cv);
 
  private:
   const std::string _str;
