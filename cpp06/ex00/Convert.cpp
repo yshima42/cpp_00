@@ -195,13 +195,13 @@ void Convert::setStrsFromChar() {
   oss.clear();
 
   // set _f_str
-  oss << _f << ".0f";
+  oss << _i << ".0f";
   _f_str = oss.str();
   oss.str("");
   oss.clear();
 
   // set _d_str
-  oss << _d << ".0";
+  oss << _i << ".0";
   _d_str = oss.str();
 }
 
@@ -226,13 +226,13 @@ void Convert::setStrsFromInt() {
   oss.clear();
 
   // set _f_str
-  oss << _f << ".0f";
+  oss << _i << ".0f";
   _f_str = oss.str();
   oss.str("");
   oss.clear();
 
   // set _d_str
-  oss << _d << ".0";
+  oss << _i << ".0";
   _d_str = oss.str();
 }
 

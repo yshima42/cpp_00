@@ -58,8 +58,12 @@ int main(int ac, char *av[]) {
   }
   try {
     showType(av[1]);
-    testOperator(av[1]);
-
+    // testOperator(av[1]);
+    Convert a(av[1]);
+    a.detectType();
+    a.setValues();
+    a.setStrs();
+    std::cout << a << std::endl;
   } catch (std::exception const &e) {
     std::cout << e.what() << std::endl;
   }

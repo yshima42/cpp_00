@@ -22,6 +22,6 @@ int main(int ac, char *av[]) {
   return 0;
 }
 
-//void detect_leak(void) __attribute__((destructor));
+// void detect_leak(void) __attribute__((destructor));
 
-//void detect_leak(void) { system("leaks -q convert"); }
+// void detect_leak(void) { system("leaks -q convert"); }
