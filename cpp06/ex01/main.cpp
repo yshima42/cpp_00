@@ -31,3 +31,7 @@ int main() {
 
   std::cout << std::endl;
 }
+
+//void detect_leak(void) __attribute__((destructor));
+
+//void detect_leak(void) { system("leaks -q a.out"); }
