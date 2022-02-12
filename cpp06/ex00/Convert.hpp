@@ -6,6 +6,7 @@
 #include <iomanip>
 #include <iostream>
 #include <sstream>
+#include <stdexcept>
 #include <string>
 
 class Convert {
@@ -13,8 +14,6 @@ class Convert {
   enum valueType { UNDEFINE, CHAR, INT, FLOAT, DOUBLE };
   Convert(const std::string &str = "");
   virtual ~Convert();
-  Convert(Convert const &other);
-  Convert &operator=(Convert const &other);
 
   void detectType();
   bool isChar();
@@ -52,9 +51,6 @@ class Convert {
   const std::string getType() const;
   void convertPrint(Convert &cv);
 
-  static const std::string k_NonDisplayable;
-  static const std::string k_Impossible;
-
  private:
   const std::string _str;
   int _valueType;
@@ -68,6 +64,10 @@ class Convert {
   std::string _i_str;
   std::string _f_str;
   std::string _d_str;
+
+  // did not use the following functions
+  Convert(Convert const &other);
+  Convert &operator=(Convert const &other);
 };
 
 std::ostream &operator<<(std::ostream &ost, const Convert &rhs);

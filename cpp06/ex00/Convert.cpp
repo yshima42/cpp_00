@@ -1,11 +1,41 @@
 #include "Convert.hpp"
 
-#include <stdexcept>
-
 #include "color.hpp"
 
-const std::string Convert::k_NonDisplayable = "Non displayable";
-const std::string Convert::k_Impossible = "impossible";
+Convert::Convert(std::string const &str) : _str(str) {}
+Convert::~Convert() {}
+
+// getters for attributes
+char Convert::get_c() const { return _c; }
+int Convert::get_i() const { return _i; }
+float Convert::get_f() const { return _f; }
+double Convert::get_d() const { return _d; }
+
+// getters for strings
+const std::string Convert::get_c_str() const { return _c_str; }
+const std::string Convert::get_i_str() const { return _i_str; }
+const std::string Convert::get_f_str() const { return _f_str; }
+const std::string Convert::get_d_str() const { return _d_str; }
+const std::string Convert::get_str() const { return _str; }
+const std::string Convert::getType() const {
+  switch (_valueType) {
+    case CHAR:
+      return "Char";
+      break;
+    case INT:
+      return "Int";
+      break;
+    case FLOAT:
+      return "Float";
+      break;
+    case DOUBLE:
+      return "Double";
+      break;
+    default:
+      return "Undefine";
+      break;
+  }
+}
 
 bool Convert::isChar() {
   if ((_str.length() == 1 && !std::isdigit(_str[0])) ||
@@ -222,7 +252,7 @@ void Convert::setStrsFromFloat() {
 
   // set _i_str
   if (static_cast<long>(_f) <= INT_MIN || static_cast<long>(_f) >= INT_MAX)
-      oss << "impossible";
+    oss << "impossible";
   else
     oss << _i;
   _i_str = oss.str();
@@ -231,7 +261,7 @@ void Convert::setStrsFromFloat() {
 
   // set _f_str
   if (_i == _f)
-    oss << _f << ".0f";
+    oss << _i << ".0f";
   else
     oss << _f << "f";
   _f_str = oss.str();
@@ -240,7 +270,7 @@ void Convert::setStrsFromFloat() {
 
   // set _d_str
   if (_i == _d)
-    oss << _d << ".0";
+    oss << _i << ".0";
   else
     oss << _d;
   _d_str = oss.str();
@@ -262,7 +292,7 @@ void Convert::setStrsFromDouble() {
 
   // set _i_str
   if (static_cast<long>(_d) <= INT_MIN || static_cast<long>(_d) >= INT_MAX)
-      oss << "impossible";
+    oss << "impossible";
   else
     oss << _i;
   _i_str = oss.str();
@@ -271,7 +301,7 @@ void Convert::setStrsFromDouble() {
 
   // set _f_str
   if (_i == _f)
-    oss << _f << ".0f";
+    oss << _i << ".0f";
   else
     oss << _f << "f";
   _f_str = oss.str();
@@ -280,7 +310,7 @@ void Convert::setStrsFromDouble() {
 
   // set _d_str
   if (_i == _d)
-    oss << _d << ".0";
+    oss << _i << ".0";
   else
     oss << _d;
   _d_str = oss.str();
@@ -293,78 +323,14 @@ void Convert::setStrsError() {
   _d_str = "impossible";
 }
 
-char Convert::get_c() const { return _c; }
-int Convert::get_i() const { return _i; }
-float Convert::get_f() const { return _f; }
-double Convert::get_d() const { return _d; }
-
-const std::string Convert::get_c_str() const { return _c_str; }
-const std::string Convert::get_i_str() const { return _i_str; }
-const std::string Convert::get_f_str() const { return _f_str; }
-const std::string Convert::get_d_str() const { return _d_str; }
-const std::string Convert::get_str() const { return _str; }
-
-Convert::Convert(std::string const &str) : _str(str) {}
-
-Convert::~Convert() {}
-
-Convert::Convert(Convert const &other) { *this = other; }
-
-Convert &Convert::operator=(Convert const &other) {
-  if (this != &other) {
-    // this->_char = other._char;
-    // this->_int = other._int;
-    // this->_float = other._float;
-    // this->_double = other._double;
-    // this->_str = other._str;
-  }
-  return *this;
-}
-
-const std::string Convert::getType() const {
-  switch (_valueType) {
-    case CHAR:
-      return "Char";
-      break;
-    case INT:
-      return "Int";
-      break;
-    case FLOAT:
-      return "Float";
-      break;
-    case DOUBLE:
-      return "Double";
-      break;
-    default:
-      return "Undefine";
-      break;
-  }
-}
-
-// void Convert::convertPrint(Convert &cv)
-//{
-//     cv.detectType();
-//     switch (cv._valueType)
-//     {
-//
-//     }
-// }
-
-// const std::string &Convert::getCtoStr() const {
-//
-//     return _c;
-// }
-//
-// const std::string &Convert::getItoStr() const {return _i;}
-// const std::string &Convert::getFtoStr() const {return _f;}
-// const std::string &Convert::getDtoStr() const {return _d;}
-//
 std::ostream &operator<<(std::ostream &ost, const Convert &rhs) {
-  // ost << YELLOW << "_str: " << rhs.get_str() << "\n" << RESET;
-  ost << "_c: " << rhs.get_c() << "\n";
-  ost << "_i: " << rhs.get_i() << "\n";
-  ost << "_f: " << rhs.get_f() << "\n";
-  ost << "_d: " << rhs.get_d() << "\n";
+  // if you want to test the values in the class, use the following functions
+  // ost << "_c: " << rhs.get_c() << "\n";
+  // ost << "_i: " << rhs.get_i() << "\n";
+  // ost << "_f: " << rhs.get_f() << "\n";
+  // ost << "_d: " << rhs.get_d() << "\n";
+
+  // output for the subject
   ost << "char: " << rhs.get_c_str() << "\n";
   ost << "int: " << rhs.get_i_str() << "\n";
   ost << "float: " << rhs.get_f_str() << "\n";

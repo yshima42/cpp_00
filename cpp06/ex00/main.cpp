@@ -13,10 +13,15 @@ int main(int ac, char *av[]) {
   try {
     Convert cv(av[1]);
     cv.detectType();
-    std::cout << cv.getType() << std::endl;
-
+    cv.setValues();
+    cv.setStrs();
+    std::cout << cv;
   } catch (std::exception const &e) {
     std::cout << e.what() << std::endl;
   }
   return 0;
 }
+
+//void detect_leak(void) __attribute__((destructor));
+
+//void detect_leak(void) { system("leaks -q convert"); }
