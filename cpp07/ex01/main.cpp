@@ -7,6 +7,11 @@ void incrementValue(T& val) {
 }
 
 template< typename T>
+void doubleValue(T& val) {
+    val = val + val;
+}
+
+template< typename T>
 void printValue(const T& val) {
     std::cout << val << std::endl;
 }
@@ -43,6 +48,7 @@ void testString()
 {
     std::cout << YELLOW << "testString" << RESET << std::endl;
     std::string a[] = {"hello", "world"};
+    ::iter(a, 2, doubleValue);
     ::iter(a, 2, printValue);
     std::cout << std::endl;
 }
