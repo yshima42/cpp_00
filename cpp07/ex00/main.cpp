@@ -2,7 +2,7 @@
 #include "whatever.hpp"
 
 void testSubject() {
-    std::cout << YELLOW << "---testSubject---" << RESET << std::endl;
+  std::cout << YELLOW << "---testSubject---" << RESET << std::endl;
   int a = 2;
   int b = 3;
 
@@ -22,7 +22,7 @@ void testSubject() {
 }
 
 void test() {
-    std::cout << YELLOW << "---My Test---" << RESET << std::endl;
+  std::cout << YELLOW << "---My Test---" << RESET << std::endl;
   char a = 'a';
   char b = 'b';
   float f1 = 1.1f;
