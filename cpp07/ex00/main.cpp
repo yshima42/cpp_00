@@ -2,6 +2,7 @@
 #include "whatever.hpp"
 
 void testSubject() {
+    std::cout << YELLOW << "---testSubject---" << RESET << std::endl;
   int a = 2;
   int b = 3;
 
@@ -21,6 +22,7 @@ void testSubject() {
 }
 
 void test() {
+    std::cout << YELLOW << "---My Test---" << RESET << std::endl;
   char a = 'a';
   char b = 'b';
   float f1 = 1.1f;
@@ -33,14 +35,14 @@ void test() {
   std::cout << "a: " << a << ", b: " << b << std::endl;
   ::swap(a, b);
   std::cout << "a: " << a << ", b: " << b << std::endl;
-  std::cout << "min: " << ::min(a, b) << std::endl;
+  std::cout << "min: " << ::min<char>(a, b) << std::endl;
   std::cout << "max: " << ::max(a, b) << std::endl;
   std::cout << std::endl;
 
   std::cout << "f1: " << f1 << ", f2: " << f2 << std::endl;
   ::swap(f1, f2);
   std::cout << "f1: " << f1 << ", f2: " << f2 << std::endl;
-  std::cout << "min: " << ::min(f1, f2) << std::endl;
+  std::cout << "min: " << ::min<float>(f1, f2) << std::endl;
   std::cout << "max: " << ::max(f1, f2) << std::endl;
   std::cout << std::endl;
 
