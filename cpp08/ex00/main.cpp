@@ -60,6 +60,19 @@ void testList(int val) {
   }
 }
 
+void testConstVector(int val) {
+  int a[] = {11, 2, 4, 5, 1};
+  const std::vector<int> v_c(a, a + 5);
+  PrintVector(v_c);
+  try {
+    std::cout << "easyfind(v, " << val << "): ";
+    std::vector<int>::const_iterator it = easyfind(v_c, val);
+    std::cout << *it << std::endl;
+  } catch (std::exception& e) {
+    std::cout << e.what() << std::endl;
+  }
+}
+
 int main() {
   std::cout << YELLOW << "---testVector---" << RESET << std::endl;
   testVector(3);
@@ -75,5 +88,11 @@ int main() {
   testList(4);
   std::cout << std::endl;
   testList(10);
+  std::cout << std::endl;
+
+  std::cout << YELLOW << "---testConstVector---" << RESET << std::endl;
+  testConstVector(1);
+  std::cout << std::endl;
+  testConstVector(6);
   std::cout << std::endl;
 }
