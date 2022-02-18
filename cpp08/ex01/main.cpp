@@ -1,3 +1,4 @@
+#include <vector>
 #include "color.hpp"
 #include "span.hpp"
 
@@ -67,6 +68,11 @@ void testIter() {
     std::vector<int> vec(arr, arr + 5);
     Span sp = Span(5);
     sp.addNumber(vec.begin(), vec.end());
+    std::cout << sp.shortestSpan() << std::endl;
+    std::cout << sp.longestSpan() << std::endl;
+
+    Span sp2 = Span(5);
+    sp2.addNumber(arr, arr + 5);
     std::cout << sp.shortestSpan() << std::endl;
     std::cout << sp.longestSpan() << std::endl;
 

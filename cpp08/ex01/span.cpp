@@ -34,13 +34,6 @@ void Span::addNumber(const int num) {
   }
 }
 
-void Span::addNumber(std::vector<int>::const_iterator it,
-                     std::vector<int>::const_iterator last) {
-  for (; it != last; ++it) {
-    this->addNumber(*it);
-  }
-}
-
 int Span::longestSpan() const {
   if (_num_items < 2) {
     throw std::range_error("Error: longestSpan: Need more than 2 numbers");

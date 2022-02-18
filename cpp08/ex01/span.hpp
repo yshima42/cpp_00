@@ -18,8 +18,9 @@ class Span {
 
   // adding number to each vector
   void addNumber(const int num);
-  void addNumber(std::vector<int>::const_iterator start,
-                 std::vector<int>::const_iterator end);
+
+  template< typename Iterator >
+  void addNumber(Iterator it, Iterator last);
 
   // calculators
   int shortestSpan() const;
@@ -33,5 +34,13 @@ class Span {
   // did not use the following functions
   Span();
 };
+
+template< typename Iterator >
+void Span::addNumber(Iterator it, Iterator last)
+{
+  for (; it != last; ++it) {
+    this->addNumber(*it);
+  }
+}
 
 #endif
