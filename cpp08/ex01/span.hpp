@@ -19,12 +19,12 @@ class Span {
   // adding number to each vector
   void addNumber(const int num);
 
-  template< typename Iterator >
+  template <typename Iterator>
   void addNumber(Iterator it, Iterator last);
 
   // calculators
-  int shortestSpan() const;
-  int longestSpan() const;
+  long shortestSpan() const;
+  long longestSpan() const;
 
  private:
   unsigned int _size;
@@ -35,9 +35,8 @@ class Span {
   Span();
 };
 
-template< typename Iterator >
-void Span::addNumber(Iterator it, Iterator last)
-{
+template <typename Iterator>
+void Span::addNumber(Iterator it, Iterator last) {
   for (; it != last; ++it) {
     this->addNumber(*it);
   }
