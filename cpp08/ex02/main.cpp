@@ -20,7 +20,9 @@ void testSubject() {
   std::cout << mstack.size() << std::endl;
   mstack.push(3);
   mstack.push(5);
-  mstack.push(737);  //[...] mstack.push(0);
+  mstack.push(737);  
+  //[...] 
+  mstack.push(0);
   MutantStack<int>::iterator it = mstack.begin();
   MutantStack<int>::iterator ite = mstack.end();
   ++it;
@@ -30,6 +32,7 @@ void testSubject() {
     ++it;
   }
   std::stack<int> s(mstack);
+  std::cout << std::endl;
 }
 
 void testString()
@@ -97,34 +100,34 @@ void testFloat()
     std::cout << std::endl;
 }
 
-template< typename T >
-class Cstack : public std::stack<T>
-{
-    public:
-        std::deque<T> get_c() { return this->c; }
-};
-
-void praStack()
-{
-    Cstack<int> s;
-    std::deque<int> d;
-    s.push(1);
-    s.push(4);
-    s.push(3);
-    s.push(19);
-    d = s.get_c();
-    std::cout << "at(2): " << d.at(2) << std::endl;
-    std::cout << "size: "<< d.size() << std::endl;
-    d.push_front(30);
-    d.push_back(20);
-
-    std::stack<int>::container_type::iterator it = d.begin();
-    while (it != d.end())
-    {
-        std::cout << *it << std::endl;
-        it++;
-    }
-}
+//template< typename T >
+//class Cstack : public std::stack<T>
+//{
+//    public:
+//        std::deque<T> get_c() { return this->c; }
+//};
+//
+//void praStack()
+//{
+//    Cstack<int> s;
+//    std::deque<int> d;
+//    s.push(1);
+//    s.push(4);
+//    s.push(3);
+//    s.push(19);
+//    d = s.get_c();
+//    std::cout << "at(2): " << d.at(2) << std::endl;
+//    std::cout << "size: "<< d.size() << std::endl;
+//    d.push_front(30);
+//    d.push_back(20);
+//
+//    std::stack<int>::container_type::iterator it = d.begin();
+//    while (it != d.end())
+//    {
+//        std::cout << *it << std::endl;
+//        it++;
+//    }
+//}
 
 int main() {
   testSubject();

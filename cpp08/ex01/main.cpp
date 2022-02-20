@@ -87,8 +87,6 @@ void testIterError() {
     std::vector<int> vec(arr, arr + 6);
     Span sp = Span(5);
     sp.addNumber(vec.begin(), vec.end());
-    std::cout << "shortestSpan: " << sp.shortestSpan() << std::endl;
-    std::cout << "longestSpan: " << sp.longestSpan() << std::endl;
 
   } catch (std::exception& e) {
     std::cout << RED << e.what() << RESET << std::endl;
