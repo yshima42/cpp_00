@@ -1,3 +1,3 @@
 #include "mutantstack.hpp"
 
-// onion2.
+// inherited onion.
