@@ -2,7 +2,11 @@
 #define SPAN_HPP
 
 #include <iostream>
+#include <algorithm>
+#include <climits>
+#include <stdexcept>
 #include <vector>
+#include <sstream>
 
 class Span {
  public:
@@ -11,10 +15,8 @@ class Span {
   Span(Span const &other);
   Span &operator=(Span const &other);
 
-  // getters
-  unsigned getSize() const;
-  unsigned getNumItems() const;
-  const std::vector<int> &getItems() const;
+  // for operator <<
+  const std::string toString() const;
 
   // adding number to each vector
   void addNumber(const int num);
@@ -23,12 +25,11 @@ class Span {
   void addNumber(Iterator it, Iterator last);
 
   // calculators
-  long shortestSpan() const;
-  long longestSpan() const;
+  unsigned int shortestSpan() const;
+  unsigned int longestSpan() const;
 
  private:
-  unsigned int _size;
-  unsigned int _num_items;
+  unsigned int _N;
   std::vector<int> _items;
 
   // did not use the following functions
@@ -41,5 +42,7 @@ void Span::addNumber(Iterator it, Iterator last) {
     this->addNumber(*it);
   }
 }
+
+std::ostream &operator<<(std::ostream &ost, const Span &rhs);
 
 #endif

@@ -1,5 +1,5 @@
 NAME	:= a.out
-SRCS	:= span.cpp main.cpp
+SRCS	:= mutantstack.cpp main.cpp
 
 INCS    := -I./
 OBJS	:= $(SRCS:.cpp=.o)
